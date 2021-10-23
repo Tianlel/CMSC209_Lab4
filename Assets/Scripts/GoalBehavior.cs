@@ -7,5 +7,6 @@ public class GoalBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
        //Put collision code here
+       Destroy (gameObject);
     }
 }
