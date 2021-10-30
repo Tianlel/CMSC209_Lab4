@@ -26,6 +26,10 @@ public class MarbleBehavior : MonoBehaviour
         lrInput = Input.GetAxis("Horizontal") * rotateSpeed;
         this.transform.Translate(Vector3.forward * fbInput * Time.deltaTime);
         this.transform.Rotate(Vector3.up * lrInput * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space) && this.transform.position.y <= 0.51) {
+          _rb.AddForce(new Vector3(0.0f, 5.0f, 0.0f), ForceMode.Impulse);
+        }
     }
 
     void FixedUpdate()
