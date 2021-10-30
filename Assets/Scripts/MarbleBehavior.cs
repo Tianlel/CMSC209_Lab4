@@ -12,6 +12,8 @@ public class MarbleBehavior : MonoBehaviour
 
     private Rigidbody _rb;
 
+    public GameObject BlastPrefab;
+
     void Start()
     {
         //You'll need to add a rigidbody to the marble first
@@ -28,8 +30,14 @@ public class MarbleBehavior : MonoBehaviour
         this.transform.Rotate(Vector3.up * lrInput * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space) && this.transform.position.y <= 0.51) {
-          _rb.AddForce(new Vector3(0.0f, 5.0f, 0.0f), ForceMode.Impulse);
+            _rb.AddForce(new Vector3(0.0f, 5.0f, 0.0f), ForceMode.Impulse);
         }
+    }
+
+    void OnMouseDown()
+    {
+        GameObject blast = Instantiate(BlastPrefab, this.transform.position, this.transform.rotation);
+
     }
 
     void FixedUpdate()

@@ -771,6 +771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rotateSpeed: 50
+  BlastPrefab: {fileID: 2314847964533696872, guid: 615e0882d25204b5aafa1708cf9895d7,
+    type: 3}
 --- !u!23 &768545878
 MeshRenderer:
   m_ObjectHideFlags: 0
