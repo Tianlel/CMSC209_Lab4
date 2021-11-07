@@ -19,6 +19,11 @@ public class EndBehavior : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void Hide() {
+        gameObject.SetActive(false);
+        hud.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {

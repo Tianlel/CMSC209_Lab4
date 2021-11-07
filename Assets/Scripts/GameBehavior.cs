@@ -8,9 +8,10 @@ public class GameBehavior : MonoBehaviour
 {
     public Text goals_collected_text;
     public Text goals_remaining_text;
-    public GameObject foobar;
     public GameObject end_panel;
+    public GameObject game_entities;
 
+    GameObject live_game_entities;
     uint goals_collected = 0;
 
     int RemainingGoalCount() {
@@ -26,6 +27,9 @@ public class GameBehavior : MonoBehaviour
     void Start()
     {
         UpdateGoalsCollected();
+        game_entities.SetActive(false);
+        live_game_entities = Instantiate(game_entities, GameObject.Find("Environment").transform);
+        live_game_entities.SetActive(true);
     }
 
     public void MarbleLose() {
@@ -34,7 +38,11 @@ public class GameBehavior : MonoBehaviour
     }
 
     public void RestartGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Destroy(live_game_entities);
+        live_game_entities = Instantiate(game_entities, GameObject.Find("Environment").transform);
+        live_game_entities.SetActive(true);
+        end_panel.GetComponent<EndBehavior>().Hide();
+        Time.timeScale = 1;
     }
 
     public void AddGoal() {

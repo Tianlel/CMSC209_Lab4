@@ -62,7 +62,7 @@ public class MarbleBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.transform.IsChildOf(obstacle_container.transform)) {
+        if (collision.gameObject.tag == "Obstacle") {
             health -= 1;
             UpdateHealth();
             if (health == 0) {

@@ -341,8 +341,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goals_collected_text: {fileID: 103330145}
   goals_remaining_text: {fileID: 1671455187}
-  foobar: {fileID: 89315939}
   end_panel: {fileID: 1192580931}
+  game_entities: {fileID: 935639647}
 --- !u!4 &106656226
 Transform:
   m_ObjectHideFlags: 0
@@ -770,6 +770,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5926534917857071861, guid: 3fca1fc8e739c43a0af37ed4deedac4d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fca1fc8e739c43a0af37ed4deedac4d, type: 3}
 --- !u!1 &522320455
@@ -1070,6 +1075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5926534917857071861, guid: 3fca1fc8e739c43a0af37ed4deedac4d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fca1fc8e739c43a0af37ed4deedac4d, type: 3}
 --- !u!1 &734353610 stripped
@@ -1137,7 +1147,7 @@ MonoBehaviour:
   _collider: {fileID: 0}
   health: 5
   health_field: {fileID: 467545504}
-  obstacle_container: {fileID: 859439189}
+  obstacle_container: {fileID: 0}
   game_manager: {fileID: 106656224}
 --- !u!23 &768545878
 MeshRenderer:
@@ -1958,6 +1968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926534917857071861, guid: 3fca1fc8e739c43a0af37ed4deedac4d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fca1fc8e739c43a0af37ed4deedac4d, type: 3}
