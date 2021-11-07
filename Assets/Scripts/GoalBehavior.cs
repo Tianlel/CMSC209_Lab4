@@ -9,4 +9,9 @@ public class GoalBehavior : MonoBehaviour
        //Put collision code here
        Destroy (gameObject);
     }
+
+    void OnDestroy() {
+       GameObject game_manager = GameObject.Find("GameManager");
+       game_manager.GetComponent<GameBehavior>().AddGoal();
+    }
 }

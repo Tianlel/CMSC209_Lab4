@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MarbleBehavior : MonoBehaviour
 {
@@ -13,11 +15,24 @@ public class MarbleBehavior : MonoBehaviour
     private Rigidbody _rb;
 
     public GameObject BlastPrefab;
+    public SphereCollider _collider;
+
+    public uint health = 5;
+
+    public Text health_field;
+    public GameObject obstacle_container;
+    public GameObject game_manager;
+
+    void UpdateHealth() {
+        health_field.text = "Health: " + health.ToString();
+    }
 
     void Start()
     {
         //You'll need to add a rigidbody to the marble first
        _rb = GetComponent<Rigidbody>();
+       _collider = GetComponent<SphereCollider>();
+       UpdateHealth();
     }
 
     // Update is called once per frame
@@ -36,8 +51,7 @@ public class MarbleBehavior : MonoBehaviour
 
     void OnMouseDown()
     {
-        GameObject blast = Instantiate(BlastPrefab, this.transform.position, this.transform.rotation);
-
+        GameObject blast = Instantiate(BlastPrefab, this.transform.position + this.transform.forward * _collider.radius, this.transform.rotation);
     }
 
     void FixedUpdate()
@@ -46,4 +60,14 @@ public class MarbleBehavior : MonoBehaviour
         //Put code that moves the sprite using the RigidBody here
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.transform.IsChildOf(obstacle_container.transform)) {
+            health -= 1;
+            UpdateHealth();
+            if (health == 0) {
+                game_manager.GetComponent<GameBehavior>().MarbleLose();
+            }
+        }
+    }
 }
