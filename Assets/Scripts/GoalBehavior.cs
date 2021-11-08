@@ -11,7 +11,8 @@ public class GoalBehavior : MonoBehaviour
     }
 
     void OnDestroy() {
-       GameObject game_manager = GameObject.Find("GameManager");
-       game_manager.GetComponent<GameBehavior>().AddGoal();
+        GameObject game_manager = GameObject.Find("GameManager");
+        if (game_manager != null)
+            game_manager.GetComponent<GameBehavior>().AddGoal();
     }
 }

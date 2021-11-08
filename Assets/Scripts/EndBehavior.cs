@@ -7,6 +7,7 @@ public class EndBehavior : MonoBehaviour
 {
     public Text end_result_text;
     public GameObject hud;
+
     // Start is called before the first frame update
     void Start()
     {
